@@ -14,7 +14,7 @@ int main ()
   cToF = (9 * TEMP_IN_C / 5) + 32;                      
   fToC = 5 * (TEMP_IN_F - 32) / 9; 
   cout << TEMP_IN_F  << " in Fahrenheit is " << fToC << " in Celsius. "  << endl; 
-  
+  cout << TEMP_IN_C << " in Celcius is " << cToF << " in Fahrenheit" << endl;
 
   cin.ignore();
   return 0;
