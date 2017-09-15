@@ -12,12 +12,12 @@ typedef std::vector<temperature> dataTable;	//A vector of temperature type.  It'
 
 float cToF(float celcius)
 {
-	return (9 * celcius / 5) + 32;
+	return 9 * celcius / 5 + 32;
 }
 
 float fToC(float fahrenheit)
 {
-	return 5 * (fahrenheit - 32) / 9;
+	return 5 * fahrenheit - 32 / 9;
 }
 
 temperature processTempPair(temperature input)
@@ -40,7 +40,7 @@ int main ()
 {
  
   
-  dataTable input { temperature{ 212, 100 }, temperature{ 100, 50 }, temperature{ 122, 37 }, temperature{32, 0} };		//The left half of the data table in Exercise 3, preloaded with the data from that table
+  dataTable input { /*temperature{ 212, 100 }, temperature{ 100, 50 },*/ temperature{ 122, 37 }/*, temperature{32, 0}*/ };		//The left half of the data table in Exercise 3, preloaded with the data from that table
 
   dataTable output = processDataTable(input);	//The right half of the data table in Exercise 3
 
