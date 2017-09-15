@@ -6,6 +6,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::setw;
+using std::setprecision;
 
 const int first = 1066;
 const int second = 1492;
@@ -27,6 +28,8 @@ int main()
 	printRight(third);
 	printRight(fourth);
 	printRight(fifth);
+
+	cout << "The answer is:" << setprecision(5) << (float)(first + second) / (float)(third + fourth + fifth) << endl;
 
 
 
