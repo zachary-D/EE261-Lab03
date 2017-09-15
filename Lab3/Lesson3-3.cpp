@@ -34,7 +34,11 @@ int main()
 	printRight(fourth);
 	printRight(fifth);
 
+	cout << endl;
+
 	cout << "The answer is:" << setprecision(5) << (float)(first + second) / (float)(third + fourth + fifth) << endl;
+
+	cout << endl;
 
 	{//To get ourselves a new 'locality' so we can redefine first, second, etc. without issue
 		const float first = 23.62;
@@ -48,6 +52,11 @@ int main()
 		printPrecision(fourth, 5);
 		printPrecision(fifth, 5);
 
+		float sum = first + second + third + fourth + fifth;
+		
+		cout << endl;
+		
+		cout << "The sum of the numbers is " << sum << endl;
 	}
 
 
