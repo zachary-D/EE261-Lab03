@@ -1,21 +1,58 @@
-// Program Convert converts a temperature from Fahrenheit to 
-// Celsius and a temperature from Celsius to Fahrenheit.
 #include <iostream>
-using namespace std;
+#include <iomanip>
+#include <vector>
 
-const int TEMP_IN_F = 32;  
-const int TEMP_IN_C = 0;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::setw;
+
+typedef std::pair<int, int> temperature;	//The temperature in Fahrenheit, and then in Celcius
+typedef std::vector<temperature> dataTable;	//A vector of temperature type.  It's a vector instead of an array for expandability
+
+int cToF(int celcius)
+{
+	return (9 * celcius / 5) + 32;
+}
+
+int fToC(int fahrenheit)
+{
+	return 5 * (fahrenheit - 32) / 9;
+}
+
+temperature processTempPair(temperature input)
+{
+	return temperature{ fToC(input.first), cToF(input.second) };
+}
+
+dataTable processDataTable(dataTable inputs)
+{
+	dataTable dataOut;
+
+	for (auto iter = inputs.begin(); iter != inputs.end(); iter++)
+	{
+		dataOut.push_back(processTempPair(*iter));
+	}
+	return dataOut;
+}
 
 int main ()
 {
-  int fToC;	// Place to store Celsius answer
-  int cToF;	// Place to store Fahrenheit answer 
+ 
+  
+  dataTable input { temperature{ 212, 100 }, temperature{ 100, 50 }, temperature{ 122, 37 }, temperature{32, 0} };		//The left half of the data table in Exercise 3, preloaded with the data from that table
 
-  cToF = (9 * TEMP_IN_C / 5) + 32;                      
-  fToC = 5 * (TEMP_IN_F - 32) / 9; 
-  cout << TEMP_IN_F  << " in Fahrenheit is " << fToC << " in Celsius. "  << endl; 
-  cout << TEMP_IN_C << " in Celcius is " << cToF << " in Fahrenheit" << endl;
+  dataTable output = processDataTable(input);	//The right half of the data table in Exercise 3
 
-  cin.ignore();
+  cout << setw(10) << "temp A (F)" << "|" << setw(10) << "temp B (C)" << "|" << setw(10) << "temp A (C)" << "|" << setw(10) << "temp B (F)" << endl;
+  for (int i = 0; i < input.size() && i < output.size(); i++)
+  {
+	  cout << setw(9) << input[i].first << " |" << setw(9) << input[i].second << " |" << setw(9) << output[i].first << " |" << setw(9) << output[i].second << endl;
+
+  }
+
+  
+
+  std::cin.ignore();
   return 0;
 }
