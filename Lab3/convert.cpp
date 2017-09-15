@@ -7,15 +7,15 @@ using std::cout;
 using std::endl;
 using std::setw;
 
-typedef std::pair<int, int> temperature;	//The temperature in Fahrenheit, and then in Celcius
+typedef std::pair<float, float> temperature;	//The temperature in Fahrenheit, and then in Celcius
 typedef std::vector<temperature> dataTable;	//A vector of temperature type.  It's a vector instead of an array for expandability
 
-int cToF(int celcius)
+float cToF(float celcius)
 {
 	return (9 * celcius / 5) + 32;
 }
 
-int fToC(int fahrenheit)
+float fToC(float fahrenheit)
 {
 	return 5 * (fahrenheit - 32) / 9;
 }
